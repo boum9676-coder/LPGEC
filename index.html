@@ -1,0 +1,722 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>LGEC - Les Génies En Chanson</title>
+
+  <!-- Playful kid-friendly font -->
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+  <script type="importmap">
+  {
+    "imports": {}
+  }
+  </script>
+</head>
+<body>
+  <div id="app">
+    <!-- Top navbar -->
+    <header class="topbar">
+      <button id="menuToggle" class="icon-btn menu-toggle" aria-label="Menu">
+        ☰
+      </button>
+      <div class="brand"></div>
+
+      <!-- Topbar navigation for desktop (falls back to mobile sidebar) -->
+      <nav class="top-actions">
+        <nav class="nav-list topbar-nav" role="navigation" aria-label="Principales">
+          <a data-target="intro" class="nav-link active">Accueil</a>
+          <a data-target="themes" class="nav-link">Thèmes & Matières</a>
+          <a data-target="programme" class="nav-link">Programme</a>
+          <a data-target="playlists" class="nav-link">Playlists</a>
+          <a data-target="about" class="nav-link">À propos</a>
+          <a data-target="contact" class="nav-link">Contact</a>
+        </nav>
+
+        <!-- Right aligned CTA -->
+        <div class="top-cta" style="display:flex;align-items:center;gap:8px">
+          <a id="downloadBtn" class="cta download-btn" href="#">Télécharger</a>
+          <button id="loginBtn" class="icon-btn" aria-label="Connexion" title="Se connecter">👤</button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Sidebar (collapsible) -->
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-inner">
+        <div class="sidebar-header">
+          <img src="/lpglogo.png" alt="LGEC" />
+          <strong>LGEC</strong>
+        </div>
+
+        <nav class="nav-list">
+          <a data-target="intro" class="nav-link active">Accueil</a>
+          <a data-target="themes" class="nav-link">Thèmes & Matières</a>
+          <a data-target="programme" class="nav-link">Programme</a>
+          <a data-target="playlists" class="nav-link">Playlists</a>
+          <a data-target="about" class="nav-link">À propos</a>
+          <a data-target="contact" class="nav-link">Contact</a>
+        </nav>
+
+        <div class="sidebar-cta" style="display:flex;flex-direction:column;gap:8px">
+          <a class="cta download-btn" href="#" id="sidebarDownload" style="text-align:center">Télécharger</a>
+          <button id="sidebarUser" class="icon-btn" aria-label="Utilisateur" title="Profil">👤</button>
+          <a class="link-plain" href="#" id="accessWeb">Accéder au Web</a>
+        </div>
+
+        <footer class="sidebar-foot">
+          <small>© LGEC — Les Génies En Chanson</small>
+        </footer>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main">
+      <!-- Hero / Intro -->
+      <section id="intro" class="section hero" aria-labelledby="hero-title">
+        <div class="hero-media">
+          <img src="/banner.png" alt="Les P'tits Génies en Chansons" />
+        </div>
+        <div class="hero-content">
+          <h1 id="hero-title">Apprendre en chantant, grandir en s'amusant !</h1>
+          <p class="lead">Chansons éducatives, comptines et leçons mises en musique — adaptées au programme de la Fédération Wallonie-Bruxelles.</p>
+          <div class="hero-actions">
+            <button class="btn primary" id="startExplore">Explorer les thèmes</button>
+            <button class="btn ghost" id="tryAI">Découvrir nos playlists</button>
+          </div>
+
+          <!-- Purpose & quick links -->
+          <div class="hero-explain" style="max-width:760px;margin:12px auto 0;text-align:left">
+            <p class="muted" style="margin:0 0 8px 0">
+              Ce projet propose des ressources musicales pédagogiques pour les enseignants et les familles : fiches par niveau, playlists et activités. Utilisez les boutons ci‑dessus pour trouver rapidement des modules par âge, écouter des albums et consulter des documents complémentaires ou consultez les articles et liens ci-dessous.
+            </p>
+            <p style="margin:0;font-size:14px">
+              Ressources rapides :
+              <a href="https://www.federation-wallonie-bruxelles.be/" target="_blank" rel="noopener" style="color:var(--accent-2);font-weight:700;margin-left:6px">Site officiel FWB</a> ·
+              <a href="http://www.enseignement.be/index.php?page=25279&navi=297" target="_blank" rel="noopener" style="color:var(--accent-2);font-weight:700;margin-left:6px">Programme officiel (PDF)</a> ·
+              <a href="https://example.org/guide-activites.pdf" target="_blank" rel="noopener" style="color:var(--accent-2);font-weight:700;margin-left:6px">Guide d'activités (PDF)</a> ·
+              <a href="https://example.org/article-recherche" target="_blank" rel="noopener" style="color:var(--accent-2);font-weight:700;margin-left:6px">Article de référence</a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Themes / Subjects -->
+      <section id="themes" class="section cards" aria-labelledby="themes-title">
+        <h2 id="themes-title">Thèmes & Matières</h2>
+        <p class="muted" style="margin-top:6px">
+          Contenus pédagogiques clairs et modulables, destinés aux enseignants et familles du cycle maternel jusqu'à la 6e primaire. Chaque fiche propose pistes <span style="color:#ff4d7e;font-weight:700">musicales</span>, compétences visées et activités adaptées à l'âge — de l'éveil et la <span style="color:#ffd93d;font-weight:700">socialisation</span> en maternelle à la <span style="color:#2e7d32;font-weight:700">consolidation</span> des savoirs fondamentaux en primaire. Modules <span style="color:#1976d2;font-weight:700">réutilisables</span> et <span style="color:#ff6b00;font-weight:700">ajustables</span> selon vos séquences.
+        </p>
+
+        <div class="cards-grid" id="themesGrid">
+          <!-- Cards injected by JS -->
+        </div>
+      </section>
+
+      <!-- Programme -->
+      <section id="programme" class="section programme" aria-labelledby="programme-title">
+        <h2 id="programme-title">Programme</h2>
+        <p class="muted" style="margin-bottom:20px">Nos parcours et <span style="color:#ff6b6b;font-weight:700">modules musicaux</span> sont conçus pour s'articuler étroitement avec le <span style="color:#ffb300;font-weight:700">programme francophone</span> (<a href="https://www.federation-wallonie-bruxelles.be/" target="_blank" rel="noopener" style="color:inherit;font-weight:700">Fédération Wallonie‑Bruxelles</a><img src="/lpglogo.png" alt="FWB" width="10" height="10" style="vertical-align:middle;margin-left:6px;border-radius:2px">) : nous ciblons les mêmes <span style="color:#00bcd4;font-weight:700">compétences</span>, cycles et repères afin d'offrir des ressources musicales qui s'insèrent naturellement dans les séquences pédagogiques officielles.</p>
+        <div style="width:70%;height:2px;background:#ffd93d;border-radius:6px;margin:20px auto;"></div>
+
+        <div class="programme-top" style="display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap;margin-top:10px">
+          <div style="flex:1;min-width:220px;max-width:420px">
+            <img src="/Programme.png" alt="Programme LGEC" style="width:100%;border-radius:12px;box-shadow:var(--shadow);object-fit:cover" />
+          </div>
+          <div style="flex:2;min-width:220px">
+            <h3 style="margin-top:0">Programmes & Modules</h3>
+            <p class="muted">Nous proposons des <strong><span style="color:#2e7d32">albums, chansons et playlists</span></strong> pensés comme des outils pédagogiques : chaque module associe objectifs d'apprentissage, activités sonores et supports réutilisables pour les enseignants. Notre valeur ajoutée : rendre les notions <strong><span style="color:#d32f2f">mémorisables</span></strong> par la musique, faciliter l'entrée en activité et proposer des ressources modulables et exportables. N'hésitez pas à <strong><span style="color:#fbc02d">comparer</span></strong> nos contenus avec le <a href="http://www.enseignement.be/index.php?page=25279&navi=297" target="_blank" rel="noopener" style="color:#00bcd4;font-weight:700">programme officiel</a> pour évaluer la correspondance et l'adaptation à vos besoins.</p>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;align-items:center">
+              <a class="btn primary" href="http://www.enseignement.be/index.php?page=25279&navi=297" target="_blank" rel="noopener">Voir le programme officiel</a>
+              <a class="more-link" href="http://www.enseignement.be/index.php?page=28316&navi=4694" id="programmeMore" role="button" aria-label="En savoir plus" target="_blank" rel="noopener">En savoir plus <span class="arrow">→</span></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Level title placed outside the table for clarity -->
+        <div style="width:70%;height:2px;background:#ffd93d;border-radius:6px;margin:20px auto;"></div>
+        <p class="muted" style="margin:20px 0">Intro — Les tableaux ci‑dessous réutilisent nos modules et attentes pédagogiques pour chaque année : ils sont adaptés, modulables et pensés pour être aisément intégrés dans vos séquences. Vous trouverez pour chaque niveau des pistes d'activités musicales, compétences visées et exemples d'évaluation.</p>
+        <h3 class="level-title" style="margin-top:20px;margin-bottom:20px">🧒 MATERNELLE</h3>
+
+        <div style="margin-top:8px;overflow:auto">
+          <table class="programme-table nice" style="width:100%;border-collapse:collapse">
+            <thead>
+              <tr>
+                <th style="text-align:left;padding:8px;border-bottom:2px solid #ffe6d6;background:#fff7f0;width:160px">Niveau</th>
+                <th style="text-align:left;padding:8px;border-bottom:2px solid #ffe6d6;background:#fff7f0;width:200px">Domaine</th>
+                <th style="text-align:left;padding:8px;border-bottom:2px solid #ffe6d6;background:#fff7f0">Détails</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- M1 rows -->
+              <tr>
+                <td rowspan="10" style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>M1 — 1ère maternelle<br><small>≈ 2,5 à 4 ans</small></strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Langage oral</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">Comprendre consignes simples (viens, assieds-toi, donne-moi, range) ; dire son prénom ; dire son âge approximatif ; nommer objets courants ; utiliser mots simples ; répondre par gestes ou mots simples ; écouter une histoire courte ; répéter des mots entendus ; chanter comptines ; imiter sons animaux.</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Prélecture et écrit</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">Manipuler livres ; regarder images ; reconnaitre son prénom ; comprendre qu’un livre se lit de gauche à droite ; tourner pages correctement ; écouter histoires illustrées ; associer image et objet ; reconnaitre pictogrammes ; écouter comptines rythmiques.</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Graphisme</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">Tenir crayon ; gribouiller ; tracer traits ; colorier grandes zones ; coller gommettes ; manipuler pâte à modeler.</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Mathématiques</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">Compter 1 à 5 ; montrer objets ; comparer beaucoup/pas beaucoup ; trier couleurs ; reconnaitre cercle et carré.</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Grandeurs</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">Grand/petit ; lourd/léger ; long/court ; plein/vide ; haut/bas.</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Temps & Espace</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">Jour/nuit ; routines ; se repérer en classe ; suivre déplacements simples.</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Sciences</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">Observer animaux ; toucher textures ; sentir odeurs ; expérimenter saisons et météo.</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Psychomotricité</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">Courir ; sauter ; marcher ; ramper ; lancer/attraper.</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Arts</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">Dessin libre ; peinture doigts ; chansons simples ; rythmes avec mains.</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Socialisation & Autonomie</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">Dire bonjour ; attendre son tour ; partager ; reconnaître émotions ; manger et boire seul ; mettre manteau ; aller toilettes.</td>
+              </tr>
+
+              <!-- M2 condensed as single-row examples -->
+              <!-- M2 — 2ème maternelle detailed rows -->
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>M2 — 2ème maternelle<br><small>≈ 4 à 5 ans</small></strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Langage oral</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">Raconter événement simple ; faire phrases complètes ; utiliser “et”, “parce que”, “mais” ; poser questions ; décrire images ; expliquer actions ; écouter histoires longues ; répondre à questions ; reformuler consignes ; utiliser vocabulaire élargi (animaux, émotions, objets, actions, couleurs, formes, lieux)</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Prélecture</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">Reconnaitre lettres prénom ; reconnaitre autres lettres ; découper mots en syllabes ; reconnaitre rimes ; écouter sons identiques ; associer lettre/son ; repérer mots identiques ; identifier début de mot ; écouter histoires longues ; anticiper fin d’histoire</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Graphisme</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">Tracer lignes brisées ; spirales ; formes géométriques ; écrire prénom avec modèle ; relier points ; dessiner bonhomme simple ; colorier sans dépasser ; reproduire modèles ; suivre lignes ; améliorer précision</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Mathématiques</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">Compter jusqu’à 10 ; associer chiffre/quantité ; comparer deux collections ; ajouter 1 ou enlever 1 ; reconnaitre chiffres 1–10 ; compléter suites simples ; trier objets ; classer formes ; identifier plus/moins ; créer petites séries</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Logique</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">Suites rouges-bleues ; classer objets ; puzzles 6–10 pièces ; trouver intrus ; associer objets fonction ; organiser catégories ; faire correspondances ; compléter séries ; anticiper suite ; jeux mémoire simples</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Grandeurs</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">Comparer tailles ; comparer poids ; comparer capacités ; utiliser plus/moins ; ranger du petit au grand ; comparer longueurs ; remplir/vider contenants ; comparer volumes ; estimer quantités ; observer différences</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Temps</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">Matin/après-midi ; hier/aujourd’hui ; jours semaine ; avant/après ; calendrier simple ; routine quotidienne ; durée activité ; ordre événements ; saisons ; repérer moments journée</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Espace</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">Devant/derrière ; gauche/droite ; dedans/dehors ; sur/sous ; haut/bas ; entre ; près/loin ; suivre parcours ; reproduire déplacements ; se situer classe</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Sciences</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">Planter graines ; observer croissance ; mélanger couleurs ; eau/flotte/coule ; observer insectes ; toucher textures ; observer météo ; expérimenter matériaux ; observer animaux ; classer vivant/non vivant</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Psychomotricité</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">Parcours moteurs ; sauter obstacles ; équilibre banc ; lancer précis ; attraper ballon ; coordination bras/jambes ; danser rythmes ; courir contrôle ; ramper ; grimper</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Arts</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">Collage organisé ; peinture structurée ; musique rythmée ; chants complets ; théâtre imitation ; création libre ; utilisation couleurs ; bricolage ; modelage ; découpage</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Socialisation</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">Coopérer ; partager ; écouter autres ; exprimer émotions ; résoudre petits conflits ; respecter règles ; attendre tour ; aider camarades ; jouer en groupe ; comprendre consignes collectives</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Autonomie</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">S’habiller partiellement ; suivre 2 consignes ; ranger matériel ; préparer activité ; terminer tâche ; demander aide ; organiser espace ; nettoyer ; gérer affaires ; être responsable</td>
+              </tr>
+
+              <!-- M3 — 3ème maternelle detailed rows -->
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>M3 — 3ème maternelle<br><small>≈ 5 à 6 ans</small></strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Langage oral</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">Raconter histoire complète ; expliquer causes ; décrire précisément ; argumenter simple ; reformuler consigne ; raconter passé ; comparer situations ; utiliser vocabulaire riche ; expliquer émotions ; structurer récit</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Prélecture</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">Identifier sons mots ; découper syllabes ; reconnaitre toutes lettres ; associer mots identiques ; manipuler rimes ; repérer sons début/fin ; reconnaitre mots fréquents ; anticiper texte ; comprendre histoires longues ; préparer lecture</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Écriture</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">Écrire prénom seul ; écrire lettres ; copier mots ; écrire petites phrases ; suivre ligne ; espacer mots ; contrôler taille lettres ; reproduire modèles ; écrire lisiblement ; former lettres correctement</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Mathématiques</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">Compter 20+ ; comparer nombres ; additions simples ; soustractions simples ; ranger nombres ; résoudre problèmes ; utiliser objets pour calcul ; compléter suites ; reconnaitre chiffres ; manipuler quantités</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Logique</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">Suites complexes ; classification multiple ; puzzles 10–20 pièces ; trouver intrus difficile ; organiser catégories ; anticiper suites ; associer relations ; compléter schémas ; résoudre problèmes ; structurer pensée</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Géométrie</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">Formes complexes ; reproduire modèles ; assembler constructions ; repérer formes environnement ; dessiner formes ; construire figures ; reconnaître solides ; manipuler objets ; comparer formes ; organiser espace</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Grandeurs</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">Comparer 3 objets ; mesurer ; estimer ; classer poids ; classer tailles ; compare
+
+            </tbody>
+          </table>
+        </div>
+        
+        <!-- Primary levels table (added) -->
+        <h3 class="level-title" style="margin-top:18px">📘 PRIMAIRE</h3>
+        <div style="margin-top:8px;overflow:auto">
+          <table class="programme-table nice" style="width:100%;border-collapse:collapse">
+            <thead>
+              <tr>
+                <th style="text-align:left;padding:8px;border-bottom:2px solid #ffe6d6;background:#fff7f0;width:160px">Niveau</th>
+                <th style="text-align:left;padding:8px;border-bottom:2px solid #ffe6d6;background:#fff7f0;width:200px">Domaine</th>
+                <th style="text-align:left;padding:8px;border-bottom:2px solid #ffe6d6;background:#fff7f0">Apprentissages principaux détaillés</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- P1 -->
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>P1 — 1ère primaire<br><small>≈ 6 à 7 ans</small></strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Lecture</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">lire syllabes simples ; lire mots fréquents ; lire phrases courtes ; comprendre consignes écrites ; reconnaître lettres majuscules/minuscules ; associer image et mot ; lire à voix haute lentement ; segmenter mots en syllabes ; identifier sons simples ; comprendre texte court</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Écriture</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">écrire mots simples ; écrire phrases courtes ; copier correctement ; écrire sous dictée simple ; respecter espaces entre mots ; former lettres correctement ; utiliser majuscules début phrase ; écrire prénom sans modèle ; structurer phrase simple ; améliorer lisibilité</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Orthographe et grammaire</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">utiliser point et majuscule ; reconnaître singulier/pluriel ; accords simples sujet-verbe ; mots outils fréquents ; verbes au présent ; accords genre simple ; orthographe mots usuels ; identifier phrase correcte ; reconnaître nom/verbe ; début conjugaison</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Mathématiques – Nombres</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">compter jusqu’à 100 ; comparer nombres ; décomposer nombres ; additions simples ; soustractions simples ; utiliser droite numérique ; ordonner nombres ; manipuler objets pour calcul ; comprendre dizaines/unités ; résoudre petits problèmes</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Calcul mental</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">doubles (2+2, 3+3) ; moitiés simples ; compléter 10 ; compter en avant/arrière ; petits calculs rapides ; additionner petits nombres ; soustraire petits nombres ; reconnaitre résultats rapides ; utiliser doigts mentalement ; estimer résultats</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Géométrie</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">reconnaître carré ; triangle ; cercle ; rectangle ; dessiner formes simples ; identifier formes objets ; reproduire figures ; comparer formes ; assembler figures simples ; observer symétrie simple</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Grandeurs</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">mesurer avec unités non standard ; comparer longueurs ; comparer masses ; comparer capacités ; lire heure pleine ; utiliser monnaie simple ; estimer tailles ; ordonner objets ; manipuler instruments simples ; comparer durées</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Sciences</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">corps humain (parties principales) ; alimentation saine ; saisons ; animaux domestiques/sauvages ; objets du quotidien ; observer nature ; eau et air ; expériences simples ; hygiène ; météo simple</td>
+              </tr>
+
+              <!-- P2 -->
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>P2 — 2ème primaire<br><small>≈ 7 à 8 ans</small></strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Lecture</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">lire textes courts ; comprendre histoires ; identifier personnages ; répondre questions ; lire avec fluidité ; repérer informations ; utiliser ponctuation ; lire silencieusement ; comprendre consignes complexes ; reformuler texte</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Écriture</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">écrire textes courts ; décrire objets ; raconter événements ; structurer phrases ; utiliser connecteurs simples ; améliorer orthographe ; écrire dictées ; organiser idées ; écrire proprement ; enrichir vocabulaire</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Orthographe et grammaire</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">accords sujet-verbe ; pluriel -s/-x ; verbes présent ; début passé/ futur ; noms/adjectifs ; identifier groupes mots ; phrases interrogatives ; accords simples ; conjugaison de base ; orthographe fréquente</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Mathématiques – Nombres</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">compter jusqu’à 1000 ; additions posées ; soustractions posées ; comparer grands nombres ; décomposer nombres ; utiliser unités/dizaines/centaines ; résoudre problèmes simples ; ranger nombres ; estimer résultats ; manipuler matériel</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Multiplication</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">tables 2-10 ; multiplication simple ; situations concrètes ; calcul mental rapide ; compréhension répétition ; problèmes simples ; utilisation grille multiplication ; association addition répétée ; estimation résultats ; automatisation</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Géométrie</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">solides (cube, sphère, cylindre) ; lignes droites/brisées ; axes de symétrie ; reproduction figures ; repérage dans espace ; construction formes ; identification angles simples ; utilisation règles ; observation objets ; classification formes</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Grandeurs</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">mesurer longueur cm/m ; comparer masses ; utiliser litre ; lire heures complètes et demi-heures ; utiliser monnaie ; résoudre problèmes mesure ; estimer grandeurs ; conversions simples ; manipuler instruments ; comparer durées</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Sciences</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">animaux cycles de vie ; alimentation ; hygiène ; eau et états ; objets techniques ; énergie simple ; observation plantes ; environnement ; météo ; expériences simples</td>
+              </tr>
+
+              <!-- P3 -->
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>P3 — 3ème primaire<br><small>≈ 8 à 9 ans</small></strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Lecture</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">comprendre texte narratif ; identifier idée principale ; repérer informations ; inférences simples ; lire silencieusement ; résumer texte ; analyser personnages ; comprendre consignes longues ; interpréter texte ; lecture fluide</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Écriture</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">écrire paragraphes ; structurer récit ; écrire description ; utiliser connecteurs (car, donc, mais) ; organiser idées ; améliorer orthographe ; rédiger texte cohérent ; écrire titres ; utiliser ponctuation ; enrichir vocabulaire</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Orthographe et grammaire</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">conjuguer présent/imparfait/futur ; accords complexes ; adjectifs qualificatifs ; groupe nominal ; accords dans phrase ; identifier verbes ; analyse simple phrase ; orthographe mots fréquents ; distinguer temps ; structurer phrases</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Mathématiques – Calcul</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">multiplication posée ; division simple ; tables automatisées ; problèmes à étapes ; calcul mental rapide ; utilisation stratégies ; décomposition nombres ; estimation résultats ; opérations mixtes ; résolution problèmes</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Fractions</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">demi ; tiers ; quart ; représentation visuelle ; comparaison fractions simples ; utilisation objets ; partage équitable ; addition simple fractions ; situations concrètes ; reconnaissance</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Géométrie</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">angles droits ; symétrie ; figures complexes ; construction avec règles ; périmètre simple ; observation formes ; reproduction modèles ; organisation espace ; figures composées ; classification solides</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Grandeurs</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">conversions cm/m/km ; masses g/kg ; litres ; calcul durées ; aires simples ; comparaison grandeurs ; estimation ; résolution problèmes ; utilisation instruments ; lecture mesures</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Sciences</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">matière états ; solides/liquides/gaz ; mélanges ; expériences ; observation changements ; énergie ; forces simples ; cycle eau ; environnement ; démarche scientifique simple</td>
+              </tr>
+
+              <!-- P4 -->
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>P4 — 4ème primaire<br><small>≈ 9 à 10 ans</small></strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Lecture</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">lire textes longs ; comprendre implicitement des informations ; identifier idée principale et secondaires ; résumer un texte ; interpréter intentions des personnages ; lire avec fluidité et expression ; répondre à questions complexes ; repérer connecteurs logiques ; comparer deux textes ; analyser structure d’un récit</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Écriture</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">écrire textes structurés (intro-développement-conclusion) ; rédiger récits cohérents ; écrire descriptions détaillées ; utiliser connecteurs variés ; améliorer orthographe ; rédiger dialogues ; organiser paragraphes ; écrire résumés ; enrichir vocabulaire ; adapter style selon consigne</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Orthographe et grammaire</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">accords dans groupe nominal ; accords sujet-verbe complexes ; conjugaison passé composé ; imparfait et futur ; analyse grammaticale simple ; identifier nature mots ; adjectifs et expansions ; homophones simples ; ponctuation avancée ; structuration phrase complexe</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Mathématiques – Nombres et calcul</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">opérations posées (addition, soustraction, multiplication) ; introduction division ; fractions simples ; calcul mental rapide ; problèmes à plusieurs étapes ; estimation résultats ; décomposition nombres complexes ; résolution problèmes concrets</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Fractions</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">comparer fractions ; représenter graphiquement ; addition simple fractions ; partager objets ; équivalence simple ; placement sur droite numérique ; compréhension numérateur/dénominateur ; résolution problèmes simples ; manipulation visuelle</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Géométrie</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">construction figures avec règle ; angles droits/aigus/obtus ; symétrie axiale ; périmètre figures simples ; identification solides ; reproduction figures complexes ; utilisation instruments géométriques ; observation formes dans environnement</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Grandeurs</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">mesurer longueurs précises (mm, cm, m) ; conversions unités ; masses (g, kg) ; capacités (ml, l) ; calcul durées ; résolution problèmes mesures ; estimation grandeurs ; calcul périmètre simple</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Sciences</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">électricité simple ; énergie (lumière, chaleur, mouvement) ; cycle de l’eau ; états de la matière ; écosystèmes simples ; chaîne alimentaire ; expériences scientifiques ; observation phénomènes naturels</td>
+              </tr>
+
+              <!-- P5 -->
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>P5 — 5ème primaire<br><small>≈ 10 à 11 ans</small></strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Lecture</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">analyser textes narratifs et informatifs ; identifier point de vue auteur ; comprendre implicite ; résumer textes longs ; comparer sources ; interpréter graphiques simples ; repérer arguments ; lire consignes complexes ; analyser structure texte ; critique simple</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Écriture</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">rédiger textes argumentatifs simples ; écrire synthèses ; produire textes informatifs ; structurer arguments ; utiliser vocabulaire précis ; améliorer cohérence ; écrire exposés ; reformuler idées ; adapter registre</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Orthographe et grammaire</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">analyse complète phrase ; conjugaison temps composés ; accords complexes ; homophones grammaticaux ; expansion du nom ; fonction sujet/complément ; types de phrases ; transformation phrase ; syntaxe complexe</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Mathématiques – Décimaux</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">addition/soustraction décimaux ; multiplication décimaux ; division simple ; résolution problèmes ; estimation résultats ; comparaison nombres décimaux ; utilisation contexte argent</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Pourcentages</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">calcul pourcentages simples ; situations commerciales ; calcul proportionnel ; interprétation données ; application contexte réel</td>
+              </tr>
+
+              <!-- P6 -->
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>P6 — 6ème primaire<br><small>≈ 11 à 12 ans</small></strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Lecture</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">analyser textes complexes ; comprendre implicite profond ; identifier intentions auteur ; comparer plusieurs textes ; synthétiser informations ; critique argumentée ; lecture documentaire ; interprétation graphique avancée</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Écriture</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">rédiger textes argumentatifs complets ; structurer dissertation simple ; écrire synthèses complexes ; produire exposés écrits ; argumenter opinions ; utiliser connecteurs avancés</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Orthographe et grammaire</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">maîtrise complète accords ; conjugaison tous temps principaux ; analyse grammaticale complète ; subordonnées simples ; transformation phrases complexes ; correction orthographique autonome</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Mathématiques – Proportionnalité</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">résoudre problèmes proportionnels ; pourcentages avancés ; règle de trois ; échelles ; graphiques ; interprétation données ; calculs complexes</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Fractions et décimaux</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">opérations complètes ; conversion fraction/décimal ; comparaison avancée ; problèmes complexes ; simplification ; application contextuelle</td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6"><strong>Sciences / Histoire / Géographie</strong></td>
+                <td style="vertical-align:top;padding:10px;border-bottom:1px solid #fff0e6">démarche scientifique complète ; écosystèmes complexes ; corps humain systèmes ; événements historiques ; lecture cartes ; citoyenneté ; langues modernes basiques</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Playlists -->
+      <section id="playlists" class="section playlists" aria-labelledby="playlists-title">
+        <h2 id="playlists-title">Playlists & Lecteurs</h2>
+        <p class="muted">Notre plateforme web et notre application Android permettent déjà l’écoute des albums, avec une diffusion également sur <span style="color:#1DB954;font-weight:700">Spotify</span>. Prochainement, nous étendrons la présence sur <span style="color:#FF3333;font-weight:700">YouTube</span>, <span style="color:#1976d2;font-weight:700">Apple Music</span> et d’autres services de streaming, ainsi que sur des <span style="color:#ff6b00;font-weight:700">plateformes éducatives</span>.</p>
+
+        <div class="playlist-row">
+          <div class="playlist-card">
+            <div class="playlist-thumb spotify">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify" style="width:56px;height:56px;object-fit:contain" />
+            </div>
+            <div class="playlist-info">
+              <h3>Comptines & Chansons</h3>
+              <p>Playlist thématique pour les plus jeunes</p>
+              <div class="playlist-actions" style="display:flex;gap:8px;align-items:center">
+                <a class="btn small" href="https://open.spotify.com/intl-fr/artist/1Cs0zKBU1kc0i8ypK3B9ai" target="_blank" rel="noopener">Ouvrir Spotify</a>
+                <a class="btn small" href="https://open.spotify.com/intl-fr/artist/1Cs0zKBU1kc0i8ypK3B9ai" target="_blank" rel="noopener" title="S'abonner sur Spotify">S'abonner</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="playlist-card">
+            <div class="playlist-thumb yt">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube" style="width:56px;height:56px;object-fit:contain" />
+            </div>
+            <div class="playlist-info">
+              <h3>Leçons en musique</h3>
+              <p>Vidéos éducatives adaptées par niveau</p>
+              <div class="playlist-actions" style="display:flex;gap:8px;align-items:center">
+                <a class="btn small" href="https://www.youtube.com/@LesPtitsG%C3%A9niesenChansons" target="_blank" rel="noopener">Ouvrir YouTube</a>
+                <a class="btn small" href="https://www.youtube.com/@LesPtitsG%C3%A9niesenChansons?sub_confirmation=1" target="_blank" rel="noopener" title="S'abonner sur YouTube">S'abonner</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:12px;max-width:760px">
+          <p class="muted" style="margin:0;font-size:14px">
+            Suivre et s'abonner nous aide à toucher davantage d'enseignants et de familles : cela renforce la visibilité des ressources éducatives gratuites, facilite le partage de nouvelles publications et soutient la pérennité du projet (création d'albums, fiches pédagogiques et nouvelles vidéos). Merci de nous soutenir en vous abonnant et en partageant nos playlists.
+          </p>
+        </div>
+      </section>
+
+      <!-- About / À propos -->
+      <section id="about" class="section about" aria-labelledby="about-title">
+        <h2 id="about-title">Notre projet</h2>
+        <div class="about-hero-wrapper" style="margin-top:8px">
+          <img src="/Apropos.png" alt="Projet éducatif musical" class="about-hero" />
+        </div>
+
+        <div class="about-flex" style="display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap;margin-top:8px">
+
+
+          <!-- textual content is now a distinct flex child so the image sits visually separated -->
+          <div class="about-content">
+            <p class="muted" style="margin-top:0">
+              Nous sommes une équipe dédiée à créer des ressources musicales éducatives : <span class="kw-rose">comptines</span>, <span class="kw-rose">chansons</span> et <span class="kw-rose">playlists</span> conçues pour accompagner <span class="kw-blue">enfants</span>, <span class="kw-blue">familles</span> et <span class="kw-blue">enseignants</span> du cycle <span class="kw-yellow">maternelle</span> jusqu'à la fin du <span class="kw-purple">primaire</span>. Nos contenus favorisent l'apprentissage actif, la mémorisation et la participation en classe ou à la maison.
+            </p>
+
+            <div style="width:70%;height:2px;background:#ffd93d;border-radius:6px;margin:20px auto;"></div>
+
+            <div class="theme-grid" style="margin-top:10px">
+              <div class="theme-col">
+                <h4>🎯 Mission</h4>
+                <p class="muted">Rendre les apprentissages fondamentaux plus accessibles et ludiques grâce à la musique : faciliter la mémorisation, encourager l'oral et développer des compétences socio-affectives.</p>
+              </div>
+              <div class="theme-col">
+                <h4>👥 Public</h4>
+                <p class="muted">Enseignants, assistantes maternelles, parents et enfants (1ère maternelle → 6e primaire). Nos ressources sont adaptées par niveau et flexibles pour usage en classe ou à la maison.</p>
+              </div>
+            </div>
+
+            <div class="theme-grid" style="margin-top:10px">
+              <div class="theme-col">
+                <h4>🤝 Partenariats</h4>
+                <p class="muted">Notre objectif est de collaborer dans le futur avec pédagogues, musiciens et éditeurs ; nous avons besoin de votre soutien : partagez nos ressources et parlez‑en autour de vous pour nous aider à grandir.</p>
+              </div>
+              <div class="theme-col">
+                <h4>📦 Supports & médias</h4>
+                <p class="muted">Nous proposons des albums sur notre plateforme et Android. Bientôt sur YouTube Kids, Spotify et d’autres plateformes. Nous développons aussi des fiches pédagogiques, audios téléchargeables et ressources prêtes à l’emploi pour la classe.</p>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:8px;margin-top:12px;align-items:center">
+              <a class="btn primary" href="#playlists" id="aboutPlaylists">Explorer les playlists</a>
+              <a class="more-link" href="#contact" role="button" style="margin-left:auto">Nous contacter <span class="arrow">→</span></a>
+            </div>
+          </div>
+        </div>
+
+        <div style="width:70%;height:2px;background:#ffd93d;border-radius:6px;margin:20px auto;"></div>
+
+        <div class="about-cards" style="margin-top:14px;display:flex;gap:10px;flex-wrap:nowrap;align-items:center;justify-content:flex-start">
+          <div class="card about-mini" style="display:flex;gap:10px;align-items:center;min-width:180px;max-width:220px">
+            <div class="animated-icon" aria-hidden>🎵</div>
+            <div>
+              <h3 style="margin:0 0 6px 0">Ressources musicales</h3>
+              <p class="muted" style="margin:0"></p>
+            </div>
+          </div>
+
+          <div class="card about-mini" style="display:flex;gap:10px;align-items:center;min-width:180px;max-width:220px">
+            <div class="animated-icon" aria-hidden>📚</div>
+            <div>
+              <h3 style="margin:0 0 6px 0">Fiches pédagogiques</h3>
+              <p class="muted" style="margin:0"></p>
+            </div>
+          </div>
+
+          <div class="card about-mini" style="display:flex;gap:10px;align-items:center;min-width:180px;max-width:220px">
+            <div class="animated-icon" aria-hidden>🌍</div>
+            <div>
+              <h3 style="margin:0 0 6px 0">Impact & accessibilité</h3>
+              <p class="muted" style="margin:0"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="section contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">Contact & Partenariats</h2>
+        <p class="muted">Nous souhaitons développer des collaborations durables avec des <span class="kw-yellow">enseignants</span>, des <span class="kw-blue">écoles</span>, des <span style="color:#FF3333;font-weight:700">musiciens</span>, des <span style="color:#ff6b00;font-weight:700">pédagogues</span> et des <span class="kw-purple">éditeurs</span> ; à l'avenir nous visons des partenariats pour co-créer des modules, enrichir nos playlists et déployer nos ressources sur davantage de <span style="color:#ff6b00;font-weight:700">plateformes éducatives</span>. Nous sommes également à l'écoute de toutes vos <span class="kw-rose">suggestions</span>, <span class="kw-rose">remarques</span> et <span class="kw-rose">idées</span> — chaque retour nous aide à améliorer le projet pour les enfants et les professionnels.</p>
+
+        <form id="contactForm" class="contact-form" novalidate>
+          <input type="text" id="name" placeholder="Nom Prénom" required />
+          <input type="text" id="establishment" placeholder="Établissement (facultatif)" />
+          <input type="email" id="email" placeholder="Email" required />
+          <select id="interest" required>
+            <option value="">Sujet</option>
+            <option value="partnership">Partenariat</option>
+            <option value="content">Création de contenu</option>
+            <option value="support">Support</option>
+          </select>
+          <textarea id="message" placeholder="Votre message..." rows="4" required></textarea>
+          <div class="form-actions">
+            <button class="btn primary" type="submit">Envoyer</button>
+          </div>
+          <div id="formMsg" class="form-msg" aria-live="polite"></div>
+        </form>
+      </section>
+    </main>
+
+    <!-- Floating CTA removed (downloads handled elsewhere) -->
+
+    <!-- Theme detail modal -->
+    <div id="themeModal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+      <div class="modal-backdrop" data-close></div>
+      <div class="modal-panel" role="document" aria-labelledby="modalTitle">
+        <button class="modal-close" data-close aria-label="Fermer">×</button>
+        <div class="modal-body">
+          <!-- Audio player for the theme (play / pause / volume / mute / scrub) placed above the image -->
+          <div style="margin-bottom:10px;display:flex;align-items:center;gap:10px;">
+            <audio id="modalAudio" controls preload="none" style="width:100%;border-radius:10px;background:transparent">
+              <source src="/Les_Poussins_Courageux.mp3" type="audio/mpeg">
+              Votre navigateur ne supporte pas l'élément audio.
+            </audio>
+          </div>
+
+          <img id="modalImg" src="/banner.png" alt="" />
+          <h3 id="modalTitle">Titre</h3>
+          <h4 id="modalSubtitle" class="muted" style="margin:4px 0 0 0;font-weight:700;font-size:15px"></h4>
+
+          <p id="modalDesc" class="muted">Description</p>
+        </div>
+        <div class="modal-actions">
+          <a id="modalMore" class="btn primary" href="#playlists" rel="noopener">Voir plus</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>

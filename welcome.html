@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Welcome User Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#fff9f4;
+      --accent:#ff6b6b;
+      --m1-start:#ff6b6b; --m1-end:#e64545;
+      --m2-start:#ff8b3a; --m2-end:#ff6b00;
+      --m3-start:#ffd93d; --m3-end:#ffb300;
+      --s1-start:#4dd0e1; --s1-end:#00bcd4;
+      --s2-start:#6ab04c; --s2-end:#3c8d0d;
+      --s3-start:#9b59b6; --s3-end:#7d3aa7;
+      --t1-start:#ff4d7e; --t1-end:#e02359;
+      --t2-start:#3f51b5; --t2-end:#2b3aa6;
+      --t3-start:#00c853; --t3-end:#00a140;
+    }
+    body{margin:0;min-height:100vh;height:auto;display:flex;align-items:flex-start;justify-content:flex-start;background:linear-gradient(180deg,var(--bg),#fff);font-family:Inter,system-ui,Arial;color:#222;padding:20px 20px 40px 20px;overflow:auto}
+    .card{background:#fff;padding:18px;border-radius:14px;box-shadow:0 10px 30px rgba(10,10,10,0.08);max-width:920px;width:100%}
+    h1{font-family:'Baloo 2',cursive;margin:0 0 6px 0;font-size:22px}
+    p{color:#555;margin:6px 0 0 0}
+    .actions{display:flex;gap:12px;align-items:center;margin-top:12px;flex-wrap:wrap}
+    .btn{padding:10px 14px;border-radius:10px;background:var(--accent);color:#fff;border:0;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+    .year-card{border-radius:12px;color:#fff;padding:14px;display:flex;flex-direction:column;gap:8px;justify-content:space-between;min-height:76px;box-shadow:0 8px 20px rgba(10,10,10,0.08);text-decoration:none}
+    .year-title{font-weight:800;font-size:16px}
+    .year-sub{opacity:0.95;font-size:13px}
+    /* color coding variants */
+    .m1{background:linear-gradient(180deg,var(--m1-start),var(--m1-end))}
+    .m2{background:linear-gradient(180deg,var(--m2-start),var(--m2-end))}
+    .m3{background:linear-gradient(180deg,var(--m3-start),var(--m3-end))}
+    .s1{background:linear-gradient(180deg,var(--s1-start),var(--s1-end))}
+    .s2{background:linear-gradient(180deg,var(--s2-start),var(--s2-end))}
+    .s3{background:linear-gradient(180deg,var(--s3-start),var(--s3-end))}
+    .t1{background:linear-gradient(180deg,var(--t1-start),var(--t1-end))}
+    .t2{background:linear-gradient(180deg,var(--t2-start),var(--t2-end))}
+    .t3{background:linear-gradient(180deg,var(--t3-start),var(--t3-end))}
+    .legend{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .legend-item{display:flex;align-items:center;gap:8px;font-size:13px;color:#444}
+    .swatch{width:28px;height:18px;border-radius:6px;border:1px solid rgba(255,255,255,0.12);box-shadow:inset 0 1px 0 rgba(255,255,255,0.12)}
+    @media(max-width:860px){ .grid{grid-template-columns:repeat(2,1fr)} }
+    @media(max-width:520px){ .grid{grid-template-columns:1fr} .card{padding:12px} h1{font-size:20px} }
+  </style>
+</head>
+<body>
+  <div class="card" role="main" aria-live="polite">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px">
+      <h1 style="margin:0">Bienvenue !</h1>
+      <button id="logoutBtn" aria-label="Déconnexion" title="Déconnexion" style="display:inline-flex;align-items:center;gap:8px;padding:8px;border-radius:10px;background:linear-gradient(180deg,#fff,#fff7f3);box-shadow:0 6px 16px rgba(0,0,0,0.06);border:0;color:#2b2b2b;font-weight:700;cursor:pointer">
+        👤
+      </button>
+    </div>
+    <p class="muted" style="margin-top:20px">Vous êtes arrivé·e sur la page d'accueil post‑connexion (simulation côté client). Choisissez votre année pour afficher des ressources et playlists adaptées. Les contenus proposés ciblent les <span style="color:#ffd93d;font-weight:700">maternelles</span>, les <span style="color:#1976d2;font-weight:700">primaires</span> et les <span style="color:#ff4d7e;font-weight:700">enseignants</span> — playlists, fiches et activités prêtes à l'emploi pour la classe ou la maison.</p>
+
+    <div class="grid" aria-hidden="false">
+      <a class="year-card m1" href="index.html#themes" title="1ère maternelle — M1">
+        <div>
+          <div class="year-title">🐣 1ère maternelle</div>
+          <div class="year-sub">≈ 2,5–4 ans</div>
+        </div>
+        <div style="font-size:13px;opacity:0.95">Découvrir activités & comptines</div>
+      </a>
+
+      <a class="year-card m2" href="index.html#themes" title="2ème maternelle — M2">
+        <div>
+          <div class="year-title">🐿️ 2ème maternelle</div>
+          <div class="year-sub">≈ 4–5 ans</div>
+        </div>
+        <div style="font-size:13px;opacity:0.95">Langage, jeux et motricité</div>
+      </a>
+
+      <a class="year-card m3" href="index.html#themes" title="3ème maternelle — M3">
+        <div>
+          <div class="year-title">🦊 3ème maternelle</div>
+          <div class="year-sub">≈ 5–6 ans</div>
+        </div>
+        <div style="font-size:13px;opacity:0.95">Prélecture & préparation primaire</div>
+      </a>
+
+      <a class="year-card s1" href="index.html#themes" title="1ère primaire — P1">
+        <div>
+          <div class="year-title">🐼 1ère primaire</div>
+          <div class="year-sub">≈ 6–7 ans</div>
+        </div>
+        <div style="font-size:13px;opacity:0.95">Lecture, écriture, premiers calculs</div>
+      </a>
+
+      <a class="year-card s2" href="index.html#themes" title="2ème primaire — P2">
+        <div>
+          <div class="year-title">🐬 2ème primaire</div>
+          <div class="year-sub">≈ 7–8 ans</div>
+        </div>
+        <div style="font-size:13px;opacity:0.95">Fluidité de lecture et multiplications</div>
+      </a>
+
+      <a class="year-card s3" href="index.html#themes" title="3ème primaire — P3">
+        <div>
+          <div class="year-title">🦉 3ème primaire</div>
+          <div class="year-sub">≈ 8–9 ans</div>
+        </div>
+        <div style="font-size:13px;opacity:0.95">Compréhension, fractions, géométrie</div>
+      </a>
+
+      <a class="year-card t1" href="index.html#themes" title="4ème primaire — P4">
+        <div>
+          <div class="year-title">🐺 4ème primaire</div>
+          <div class="year-sub">≈ 9–10 ans</div>
+        </div>
+        <div style="font-size:13px;opacity:0.95">Approfondissement & méthodes</div>
+      </a>
+
+      <a class="year-card t2" href="index.html#themes" title="5ème primaire — P5">
+        <div>
+          <div class="year-title">🦅 5ème primaire</div>
+          <div class="year-sub">≈ 10–11 ans</div>
+        </div>
+        <div style="font-size:13px;opacity:0.95">Pourcentages & raisonnement</div>
+      </a>
+
+      <a class="year-card t3" href="index.html#themes" title="6ème primaire — P6">
+        <div>
+          <div class="year-title">🦁 6ème primaire</div>
+          <div class="year-sub">≈ 11–12 ans</div>
+        </div>
+        <div style="font-size:13px;opacity:0.95">Préparation secondaire & projets</div>
+      </a>
+    </div>
+
+    <!-- Modal: track list -->
+    <div id="tracksModal" aria-hidden="true" role="dialog" style="position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:120;">
+      <div class="modal-backdrop" style="position:absolute;inset:0;background:rgba(0,0,0,0.5)"></div>
+      <div style="position:relative;z-index:121;background:#fff;border-radius:12px;padding:16px;width:92%;max-width:520px;box-shadow:0 12px 36px rgba(0,0,0,0.18);">
+        <button id="tracksClose" aria-label="Fermer" style="position:absolute;right:12px;top:12px;border:0;background:#ff6b6b;color:#fff;width:36px;height:36px;border-radius:8px;font-size:18px;cursor:pointer">×</button>
+        <h2 id="tracksTitle" style="margin:0 0 8px 0;font-family:'Baloo 2',cursive">Playlist</h2>
+        <p id="tracksSubtitle" style="margin:0 0 12px 0;color:#555;font-size:14px"></p>
+
+        <div id="tracksList" style="display:flex;flex-direction:column;gap:10px;margin-bottom:12px">
+          <!-- Tracks injected here -->
+        </div>
+
+        <div style="display:flex;gap:12px;flex-direction:column">
+          <div style="display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap">
+            <div style="font-size:13px;color:#555">Découvrir plus en nous rejoignant :</div>
+            <div style="display:flex;gap:8px">
+              <a id="spotifyLink" class="btn" href="https://open.spotify.com/intl-fr/artist/1Cs0zKBU1kc0i8ypK3B9ai" target="_blank" rel="noopener" style="background:#1DB954">Spotify</a>
+              <a id="ytLink" class="btn" href="https://www.youtube.com/@LesPtitsG%C3%A9niesenChansons" target="_blank" rel="noopener" style="background:#FF3333">YouTube</a>
+            </div>
+          </div>
+
+          <!-- Order card: album personnalisé — single action on bottom-right -->
+          <div style="display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap;margin-top:8px">
+            <div style="flex:1;min-width:220px"></div>
+
+            <div style="min-width:260px;display:flex;flex-direction:column;gap:8px;align-items:stretch">
+              <div style="background:#fffaf6;padding:12px;border-radius:10px;border:1px solid rgba(255,200,160,0.4);display:flex;justify-content:space-between;align-items:center">
+                <div>
+                  <div style="font-weight:800">Album personnalisé — 20 titres</div>
+                  <div style="font-size:13px;color:#666">Album adapté à l'enfant — prix affiché : <strong>29,99 €</strong></div>
+                </div>
+                <!-- Commander button placed at the right -->
+                <div style="display:flex;align-items:center;justify-content:flex-end;min-width:120px">
+                  <button id="orderAlbumBtn" class="btn" style="background:#7d3aa7;min-width:48px;width:48px;height:40px;padding:0;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;font-size:18px" title="Commander">
+                    🛒
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(){
+        const modal = document.getElementById('tracksModal');
+        const tracksList = document.getElementById('tracksList');
+        const tracksTitle = document.getElementById('tracksTitle');
+        const tracksSubtitle = document.getElementById('tracksSubtitle');
+        const tracksClose = document.getElementById('tracksClose');
+        const spotifyLink = document.getElementById('spotifyLink');
+        const ytLink = document.getElementById('ytLink');
+
+        // order button element
+        const orderAlbumBtn = document.getElementById('orderAlbumBtn');
+
+        // helper to open a mailto with prefilled subject/body
+        function openMailto(subject, body, to='moh.boussati@gmail.com'){
+          const mail = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+          window.location.href = mail;
+        }
+
+        // Order album: open mail client to place a personalized album order
+        orderAlbumBtn?.addEventListener('click', function(){
+          const subject = 'Album Personnalisé — Commande';
+          let body = `Bonjour Moh,\n\nJe voudrais commander un Album Personnalisé (20 titres) — prix affiché: 29,99 €.\n\nInformations client:\nNom / Prénom:\nEmail de contact:\nÂge de l'enfant:\nInformations particulières / thèmes souhaités:\n\nVeuillez me confirmer la disponibilité et m'envoyer un devis si nécessaire.\n\nMerci,\n`;
+          openMailto(subject, body);
+        });
+
+        // sample demo tracks (reuse bundled demo file for each entry)
+        const SAMPLE_TRACKS = [
+          { id: 't1', title: 'Les Poussins Courageux — Version A', src: '/Les_Poussins_Courageux.mp3' },
+          { id: 't2', title: 'Les Poussins Courageux — Version B', src: '/Les_Poussins_Courageux.mp3' },
+          { id: 't3', title: 'Les Poussins Courageux — Instrumental', src: '/Les_Poussins_Courageux.mp3' }
+        ];
+
+        // create track item DOM
+        function makeTrackItem(track){
+          const wrap = document.createElement('div');
+          wrap.style.display = 'flex';
+          wrap.style.alignItems = 'center';
+          wrap.style.justifyContent = 'space-between';
+          wrap.style.gap = '8px';
+          wrap.style.background = '#fff6ee';
+          wrap.style.padding = '8px';
+          wrap.style.borderRadius = '10px';
+          wrap.style.border = '1px solid rgba(255,200,160,0.4)';
+
+          const left = document.createElement('div');
+          left.style.display = 'flex';
+          left.style.flexDirection = 'column';
+          left.style.gap = '6px';
+          const title = document.createElement('div');
+          title.textContent = track.title;
+          title.style.fontWeight = '700';
+          title.style.fontSize = '14px';
+          const hint = document.createElement('div');
+          hint.textContent = 'Durée demo • Lecteur intégré';
+          hint.style.fontSize = '12px';
+          hint.style.color = '#666';
+          left.appendChild(title);
+          left.appendChild(hint);
+
+          const controls = document.createElement('div');
+          controls.style.display = 'flex';
+          controls.style.alignItems = 'center';
+          controls.style.gap = '8px';
+
+          // small audio element (hidden) and play/pause button
+          const audio = document.createElement('audio');
+          audio.src = track.src;
+          audio.preload = 'none';
+          audio.style.display = 'none';
+
+          const playBtn = document.createElement('button');
+          playBtn.className = 'btn';
+          playBtn.textContent = '▶︎';
+          playBtn.style.padding = '8px 10px';
+          playBtn.style.borderRadius = '8px';
+          playBtn.style.background = '#ff6b6b';
+          playBtn.style.color = '#fff';
+          playBtn.style.fontWeight = '700';
+          playBtn.style.cursor = 'pointer';
+
+          playBtn.addEventListener('click', function(){
+            // pause other audios
+            document.querySelectorAll('#tracksList audio').forEach(a=>{ if(a !== audio){ a.pause(); a.currentTime = 0; }});
+            if(audio.paused){
+              audio.play();
+              playBtn.textContent = '⏸';
+            } else {
+              audio.pause();
+              playBtn.textContent = '▶︎';
+            }
+          });
+
+          // when audio ends, reset button
+          audio.addEventListener('ended', ()=> { playBtn.textContent = '▶︎'; audio.currentTime = 0; });
+
+          controls.appendChild(playBtn);
+          controls.appendChild(audio);
+          wrap.appendChild(left);
+          wrap.appendChild(controls);
+
+          return wrap;
+        }
+
+        // open modal and inject tracks for a selected year
+        function openForYear(title, subtitle){
+          tracksTitle.textContent = title;
+          tracksSubtitle.textContent = subtitle || '';
+          tracksList.innerHTML = '';
+          SAMPLE_TRACKS.forEach(t=>{
+            tracksList.appendChild(makeTrackItem(t));
+          });
+          // show modal
+          modal.style.display = 'flex';
+          modal.setAttribute('aria-hidden','false');
+        }
+
+        // close modal helper
+        function closeModal(){
+          modal.style.display = 'none';
+          modal.setAttribute('aria-hidden','true');
+          // pause all audio
+          document.querySelectorAll('#tracksList audio').forEach(a=>{ a.pause(); a.currentTime = 0; });
+          // reset play buttons
+          document.querySelectorAll('#tracksList button').forEach(b=> b.textContent = '▶︎');
+        }
+
+        tracksClose.addEventListener('click', closeModal);
+        modal.querySelector('.modal-backdrop').addEventListener('click', closeModal);
+
+        // wire up year-card clicks
+        document.querySelectorAll('.year-card').forEach(card=>{
+          card.addEventListener('click', (e)=>{
+            e.preventDefault();
+            const title = card.querySelector('.year-title') ? card.querySelector('.year-title').textContent : 'Playlist';
+            const subtitle = card.querySelector('.year-sub') ? card.querySelector('.year-sub').textContent : '';
+            openForYear(title, subtitle);
+            // optionally update Spotify/YouTube links per card (keep general playlist links)
+            // spotifyLink.href = '...'; ytLink.href = '...';
+          });
+        });
+
+        // keyboard escape to close
+        document.addEventListener('keydown', function(ev){
+          if(ev.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') closeModal();
+        });
+      })();
+    </script>
+    <script>
+      // logout button: return to main page
+      document.getElementById('logoutBtn')?.addEventListener('click', function(){
+        window.location.href = 'index.html';
+      });
+    </script>
+  </div>
+</body>
+</html>
